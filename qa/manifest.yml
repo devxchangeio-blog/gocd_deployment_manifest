@@ -1,3 +1,4 @@
+
 applications:
 - name: user-service
   memory: 1G
