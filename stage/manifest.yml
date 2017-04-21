@@ -1,0 +1,7 @@
+applications:
+- name: user-service
+  memory: 1G
+  instances: 2
+  host: user-service
+  #domain: shared-domain.example.com
+  path: user-service/stg/user-service-0.0.1-SNAPSHOT.jar
