@@ -70,9 +70,9 @@ main() {
     info "api not specified; using https://api.run.pivotal.io";
   fi
 
-  info "Downloading CF CLI";
-  wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
-  tar -zxf cf.tgz;
+  #info "Downloading CF CLI";
+  #wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
+  #tar -zxf cf.tgz;
 
   info "Logging in to CF API";
   local login_cmd="./cf login \
