@@ -8,8 +8,6 @@
  CF_ORG="oneclicklabs"
  CF_SPACE="dev"
 
- echo CF_API;
-
 max_health_checks=20
 expected_response="200"
 temp_suffix="-temp"
