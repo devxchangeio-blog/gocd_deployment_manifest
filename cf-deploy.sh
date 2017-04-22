@@ -18,18 +18,18 @@ domain=$(grep " domain: " manifest.yml | sed 's/.*://;s/ //g')
 hostname=$(grep " host: " manifest.yml | sed 's/.*://;s/ //g')
 
 # Set default values
-: "${domain:="${CF_SHARED_DOMAIN}"}"
-: "${hostname:="${app_name}"}"
+: ${domain:=${CF_SHARED_DOMAIN}}
+: ${hostname:=${app_name}}
 
 # Set up temporary app
-temp_app_name="${app_name}${temp_suffix}"
-temp_domain="${CF_SHARED_DOMAIN}"
-temp_hostname="${app_name}${temp_suffix}"
+temp_app_name=${app_name}${temp_suffix}
+temp_domain=${CF_SHARED_DOMAIN}
+temp_hostname=${app_name}${temp_suffix}
 
 # CF Login
-cf api "${CF_API}"
-cf login "${CF_USERNAME}" "${CF_PASSWORD}"
-cf target -o "${CF_ORG}" -s "${CF_SPACE}"
+cf api ${CF_API}
+cf login ${CF_USERNAME} ${CF_PASSWORD}
+cf target -o ${CF_ORG} -s ${CF_SPACE}
 
 # Push Green
 cf push "${temp_app_name}" --no-route
