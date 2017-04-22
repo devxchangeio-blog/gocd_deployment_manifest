@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 # Your ENV variables (Should be set externally, e.g. export CF_USERNAME="myUsername123")
- CF_API=api.run.pivotal.io
- CF_SHARED_DOMAIN=oneclicklabs
- CF_USERNAME=ksadayamuthu@yahoo.com
- CF_PASSWORD=Vinodh@2017
- CF_ORG=oneclicklabs
- CF_SPACE=dev
+ CF_API="api.run.pivotal.io"
+ CF_SHARED_DOMAIN="oneclicklabs"
+ CF_USERNAME="ksadayamuthu@yahoo.com"
+ CF_PASSWORD="Vinodh@2017"
+ CF_ORG="oneclicklabs"
+ CF_SPACE="dev"
+
+ echo CF_API;
 
 max_health_checks=20
 expected_response="200"
