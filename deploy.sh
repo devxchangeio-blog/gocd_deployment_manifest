@@ -75,15 +75,8 @@ main() {
   #tar -zxf cf.tgz;
 
   info "Logging in to CF API";
-
-  local login_cmd="./cf login \
-      -u \"$username\" \
-      -p \"$password\" \
-      -o \"$organization\" \
-      -s \"$space\" \
-      -a \"$api\"";
-
-  info "login_cmd==>$login_cmd";
+  info "login_cmd==>$api";
+  local login_cmd="./cf login \ -u \"$username\" \ -p \"$password\" \ -o \"$organization\" \ -s \"$space\" \ -a \"$api\"";
 
   if [ -n "$skip_ssl" ]; then
     login_cmd="$login_cmd --skip-ssl-validation";
