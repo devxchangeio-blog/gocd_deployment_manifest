@@ -29,11 +29,6 @@ then
     fail 'missing or empty option cloudfoundry_space, please check wercker.yml'
 fi
 
-if [ ! -n "$WERCKER_CF_PUSH_CLOUDFOUNDRY_USE_MANIFEST" ]
-then
-    fail 'missing or empty option cloudfoundry_use_manifest, please check wercker.yml'
-fi
-
 wget http://go-cli.s3-website-us-east-1.amazonaws.com/releases/v6.3.2/cf-linux-amd64.tgz
 tar -zxvf cf-linux-amd64.tgz
 CF=./cf
@@ -42,11 +37,7 @@ ${CF} api ${WERCKER_CF_PUSH_CLOUDFOUNDRY_API_URL}
 ${CF} login -u ${WERCKER_CF_PUSH_CLOUDFOUNDRY_USER_NAME} -p ${WERCKER_CF_PUSH_CLOUDFOUNDRY_USER_PASS} -o ${WERCKER_CF_PUSH_CLOUDFOUNDRY_ORG} -s ${WERCKER_CF_PUSH_CLOUDFOUNDRY_SPACE}
 PUSH_CMD=""
 
-PUSH_CMD="${CF} push ${WERCKER_CF_PUSH_CLOUDFOUNDRY_APP_NAME}"
-
-if [[ ${WERCKER_CF_PUSH_CLOUDFOUNDRY_USE_MANIFEST} == false ]]; then
-  PUSH_CMD="${PUSH_CMD} --no-manifest"
-fi
+PUSH_CMD="${CF} push -f manifest.yml
 
 if [ ! -z ${WERCKER_CF_PUSH_CLOUDFOUNDRY_BUILDPACK} ]; then
   PUSH_CMD="${PUSH_CMD} -b ${WERCKER_CF_PUSH_CLOUDFOUNDRY_BUILDPACK}"
