@@ -74,7 +74,7 @@ main() {
   #tar -zxf cf.tgz;
 
   echo "Logging in to CF API";
-  local login_cmd="cf login \
+  local login_cmd="./cf login \
       -u \"$username\" \
       -p \"$password\" \
       -o \"$organization\" \
