@@ -67,14 +67,14 @@ main() {
 
   if [ -z "$api" ]; then
     api="https://api.run.pivotal.io";
-    info "api not specified; using https://api.run.pivotal.io";
+    echo "api not specified; using https://api.run.pivotal.io";
   fi
 
   #info "Downloading CF CLI";
   #wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
   #tar -zxf cf.tgz;
 
-  info "Logging in to CF API";
+  #info "Logging in to CF API";
   echo "login_cmd==>$api";
   local login_cmd="./cf login \ -u \"$username\" \ -p \"$password\" \ -o \"$organization\" \ -s \"$space\" \ -a \"$api\"";
   echo "login_cmd==>$login_cmd";
@@ -85,13 +85,13 @@ main() {
   eval $login_cmd;
 
   if [ -n "$alt_appname" ]; then
-    info "Doing Blue-green deploy with $appname and $alt_appname";
+    echo "Doing Blue-green deploy with $appname and $alt_appname";
     if [ -z "$domain" ]; then
       fail "domain not specified; it is required for blue-green deploys; please add the domain parameter to the step";
     fi
     blue_green_deploy "$appname" "$alt_appname" "$domain" "$hostname";
   else
-    info "Pushing app";
+    echo "Pushing app";
     simple_deploy "$appname" "$domain";
   fi
 }
