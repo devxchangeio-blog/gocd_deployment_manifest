@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 simple_deploy() {
   set -e;
   local appname="$1";
