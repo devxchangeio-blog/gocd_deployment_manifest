@@ -70,14 +70,17 @@ main() {
     echo "api not specified; using https://api.run.pivotal.io";
   fi
 
-  #info "Downloading CF CLI";
-  #wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
-  #tar -zxf cf.tgz;
+  echo "Downloading CF CLI";
+  wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
+  tar -zxf cf.tgz;
 
-  #info "Logging in to CF API";
-  echo "login_cmd==>$api";
-  local login_cmd="./cf login \ -u \"$username\" \ -p \"$password\" \ -o \"$organization\" \ -s \"$space\" \ -a \"$api\"";
-  echo "login_cmd==>$login_cmd";
+  echo "Logging in to CF API";
+   local login_cmd="./cf login \
+      -u \"$username\" \
+      -p \"$password\" \
+      -o \"$organization\" \
+      -s \"$space\" \
+      -a \"$api\"";
 
   if [ -n "$skip_ssl" ]; then
     login_cmd="$login_cmd --skip-ssl-validation";
