@@ -1,9 +1,6 @@
-applications:
-- name: user-service
-  memory: 512MB
-  instances: 2
-  host: user-service
-  path: user-service/dev/user-service-0.0.1-SNAPSHOT.jar
+name: cf-deploy
+version: 0.2.0
+description: Deploy application to Cloud Foundry via `cf push`
 keywords:
   - pivotal
   - cloudfoundry
