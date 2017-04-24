@@ -1,37 +1,6 @@
 applications:
 - name: user-service
-  memory: 512MB
-  instances: 2
+  memory: 256MB
+  instances: 1
   host: user-service
   path: user-service/dev/user-service-0.0.1-SNAPSHOT.jar
-keywords:
-  - pivotal
-  - cloudfoundry
-  - cloud
-  - push
-  - cf
-properties:
-  api:
-    type: string
-    required: true
-  user:
-    type: string
-    required: true
-  password:
-    type: string
-    required: true
-  org:
-    type: string
-    required: true
-  space:
-    type: string
-    required: true
-  appname:
-    type: string
-    required: true
-  docker_image:
-    type: string
-    required: false
-  skip-ssl-validation:
-    type: string
-    required: false

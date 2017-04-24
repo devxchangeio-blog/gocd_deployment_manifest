@@ -70,8 +70,7 @@ main() {
   fi
 
   #echo "Downloading CF CLI";
-  #wget -O cf.tgz "https://cli.run.pivotal.io/stable?release=linux64-binary";
-  #tar -zxf cf.tgz;
+  curl -L "https://cli.run.pivotal.io/stable?release=macosx64-binary&source=github" | tar -zx
 
   echo "Logging in to CF API";
   local login_cmd="./cf login \
